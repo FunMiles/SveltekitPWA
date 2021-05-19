@@ -6,9 +6,10 @@ declare let self: ServiceWorkerGlobalScope
 console.log('SW build', build, 'files', files, 'timestamp', timestamp);
 
 self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SKIP_WAITING')
-        self.skipWaiting()
-})
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
+});
 
 
 precacheAndRoute([
