@@ -1,12 +1,7 @@
-{
+
+ {
     "short_name": "Demo PWA",
     "name": "Svelte-kit Demo PWA",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#3050f0",
-    "lang": "en-US",
-    "scope": "/",
     "icons": [
       {
         "src": "pwa-192x192.png",
@@ -17,12 +12,11 @@
         "src": "pwa-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
-      },
-      {
-        "src": "pwa-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "any maskable"
       }
-    ]
-}
+    ],
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#3050f0",
+    "background_color": "#ffffff"
+  }
