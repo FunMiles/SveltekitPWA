@@ -101,11 +101,11 @@
       {/if}
     </div>
     {#if needRefresh}
-    <button on:click={updateServiceWorker()}>
+    <button on:click={updateServiceWorker}>
       Reload
     </button>
     {/if}
-    <button on:click={close()}>
+    <button on:click={close}>
       Close
     </button>
   </div>
@@ -122,6 +122,7 @@
         border-radius: 4px;
         z-index: 1;
         text-align: left;
+        background-color: aqua;
         box-shadow: 3px 4px 5px 0px #8885;
     }
     .pwa-toast .message {
