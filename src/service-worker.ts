@@ -5,8 +5,6 @@ import {StaleWhileRevalidate} from 'workbox-strategies';
 
 declare let self: ServiceWorkerGlobalScope
 
-console.log('SW build', build, 'files', files, 'timestamp', timestamp);
-
 self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         self.skipWaiting();
@@ -43,7 +41,6 @@ precache( skRoutes.map(f => {
 const matchCb = ({url, request, event}) => {
     return skRoutes.some(path => url.pathname === path);
 };
-
 registerRoute(matchCb, new StaleWhileRevalidate({}));
 
 

@@ -13,7 +13,6 @@
         // When \`event.wasWaitingBeforeRegister\` is true, a previously
         // updated service worker is still waiting.
         // You may want to customize the UI prompt accordingly.
-        console.log(`showSkipWaitingPrompt: wasWaitingBeforeRegister = ${event.wasWaitingBeforeRegister}`);
 
         // Assumes your app has some sort of prompt UI element
         // that a user can either accept or reject.
@@ -26,7 +25,6 @@
         // service worker has taken control.
         if (wb) {
             wb.addEventListener('controlling', (event) => {
-                console.log(`controlling: isUpdate = ${event.isUpdate}`);
                 if (event.isUpdate)
                     window.location.reload()
             });
@@ -38,7 +36,7 @@
             // Note: for this to work, you have to add a message
             // listener in your service worker. See below.
             messageSW(registration.waiting, { type: 'SKIP_WAITING' }).then(() => {
-                console.log("NOTIFIED SKIP_WAITING");
+                // console.log("NOTIFIED SKIP_WAITING");
             }).catch(e => {
                 console.error("NOTIFIED SKIP_WAITING WITH ERROR", e);
             });
@@ -52,15 +50,12 @@
 
     if (!dev && browser) {
         if ('serviceWorker' in navigator) {
-            console.log('PASO');
             wb = new Workbox('/service-worker.js', { scope: '/' });
             wb.addEventListener('activated', (event) => {
                 // this will only controls the offline request.
                 // event.isUpdate will be true if another version of the service
                 // worker was controlling the page when this version was registered.
-                console.log(`activated: isUpdate = ${event.isUpdate}`);
                 if (!event.isUpdate) {
-                    console.log("BEFORE: onOfflineReady");
                     offlineReady = true;
                 }
             });
@@ -74,10 +69,10 @@
 
             // register the service worker
             wb.register({ immediate: true }).then(r => registration = r).catch(e => {
-                console.log("cannot register service worker", e);
+                console.error("cannot register service worker", e);
             });
         } else {
-            console.log('Service workers are not supported.');
+            console.warn('Service workers are not supported.');
         }
     }
 
