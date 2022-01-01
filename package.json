@@ -11,6 +11,7 @@
   "devDependencies": {
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
+    "@types/cookie": "^0.4.1",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^7.22.0",
@@ -31,6 +32,7 @@
     "@fontsource/fira-mono": "^4.2.2",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1",
+    "workbox-core": "^6.4.2",
     "workbox-precaching": "^6.1.5",
     "workbox-window": "^6.1.5"
   }
